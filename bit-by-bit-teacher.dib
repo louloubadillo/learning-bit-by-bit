@@ -1,0 +1,35 @@
+#!markdown
+
+# Learning Bit by Bit
+
+#!csharp
+
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+
+#!csharp
+
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
+
+#!csharp
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
+
+#!markdown
+
+# [Challenge] bases
+
+#!markdown
+
+## [Question]
+
+## Why is number 10 special?
