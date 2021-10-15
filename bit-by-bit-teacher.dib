@@ -26,10 +26,82 @@ Lesson.ResetChallenge();
 
 #!markdown
 
-# [Challenge] bases
+# Part 1: Counting Systems
 
 #!markdown
 
-## [Question]
+## 1.1 How to represent numbers
 
-## Why is number 10 special?
+#!markdown
+
+It’s a long summer and you have lots of freetime. Being the curious new mind in the neighborhood you begin to wonder around and explore. Yet one question keeps echoing in your head: how many people live here? So you set yourself up to the task of counting them to find your answer. How would you do it? And how would you represent such a quantity?
+
+#!markdown
+
+### [Challenge] Map individually
+
+#!csharp
+
+Func<char[], int> Counting = inputArray => 0;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Checking the counting function", context =>
+{
+    var correctAns  = 4;
+    var ans = Counting(new char[] {'.','.','.','.'});
+
+    if (ans == correctAns)
+    {
+        context.Pass("Counting function is correct");
+    }
+    else
+    {
+        context.Fail("Counting function is incorrect");
+    }
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+{
+    var numPassed = context.RuleEvaluations.Count(e => e.Passed);
+    var total = context.RuleEvaluations.Count();
+
+    if (total == numPassed)
+    {
+        context.SetMessage("Map individually challenge completed");
+        await context.StartNextChallengeAsync();
+    }
+    else
+    {
+        context.SetMessage("Map individually challenge is not complete");
+    }
+});
+
+#!markdown
+
+### [Question]
+
+#!markdown
+
+### Map individually: Counting people using dots
+
+#!markdown
+
+In this challenge you will be given an array of dots.
+
+The dots are characters so the input will have the type `char[]`.
+
+The idea of this challenge is to define a function that counts the number of dots in the array, such that this dots can serve as a way to represent quantities. You will write the answer as a lambda and assign it to `Counting`. Since the inputs are of the type `char[]` and the output is the number of dots (which is an integer), the lambda should have the type `Func<char[], int>`.
+
+#!csharp
+
+Counting = inputArray =>
+{
+    throw new NotImplementedException(); // Write your answer here
+};
+
+#!csharp
+
+Lesson.ResetChallenge();
