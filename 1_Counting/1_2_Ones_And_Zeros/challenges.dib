@@ -43,7 +43,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
         context.SetMessage("Please wait! We are checking your submission");
         int numPassed = context.RuleEvaluations.Count(e => e.Passed);
         int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
+        if(numPassed == total){
             context.SetMessage("Congratulations! Challenge completed");
             await context.StartNextChallengeAsync();
         } else {
@@ -171,7 +171,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
         context.SetMessage("Please wait! We are checking your submission");
         int numPassed = context.RuleEvaluations.Count(e => e.Passed);
         int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
+        if(numPassed == total){
             context.SetMessage("Congratulations! Challenge completed");
             await context.StartNextChallengeAsync();
         } else {
@@ -236,7 +236,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
         context.SetMessage("Please wait! We are checking your submission");
         int numPassed = context.RuleEvaluations.Count(e => e.Passed);
         int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
+        if(numPassed == total){
             context.SetMessage("Congratulations! Challenge completed");
             await context.StartNextChallengeAsync();
         } else {

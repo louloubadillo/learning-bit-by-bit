@@ -48,17 +48,17 @@ Lesson.CurrentChallenge.AddRule("Rule: 1.1.1. Individual Marks", context =>
 #!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
-    {
-        context.SetMessage("Please wait! We are checking your submission");
-        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
-        int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
-            context.SetMessage("Congratulations! Challenge completed");
-            await context.StartNextChallengeAsync();
-        } else {
-            context.SetMessage("Challenge 1.1.1. Is not complete");
-        }
-    });
+{
+    context.SetMessage("Please wait! We are checking your submission");
+    int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+    int total = context.RuleEvaluations.Count();
+    if(numPassed == total){
+        context.SetMessage("Congratulations! Challenge completed");
+        await context.StartNextChallengeAsync();
+    } else {
+        context.SetMessage("Challenge 1.1.1. Is not complete");
+    }
+});
 
 #!markdown
 
@@ -121,17 +121,17 @@ Lesson.CurrentChallenge.AddRule("Rule: 1.1.2. Grouping symbols", context =>
 #!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
-    {
-        context.SetMessage("Please wait! We are checking your submission");
-        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
-        int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
-            context.SetMessage("Congratulations! Challenge completed");
-            await context.StartNextChallengeAsync();
-        } else {
-            context.SetMessage("Challenge 1.1.2. Is not complete");
-        }
-    });
+{
+    context.SetMessage("Please wait! We are checking your submission");
+    int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+    int total = context.RuleEvaluations.Count();
+    if(numPassed == total){
+        context.SetMessage("Congratulations! Challenge completed");
+        await context.StartNextChallengeAsync();
+    } else {
+        context.SetMessage("Challenge 1.1.2. Is not complete");
+    }
+});
 
 #!markdown
 
@@ -212,7 +212,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
     context.SetMessage("Please wait! We are checking your submission");
     int numPassed = context.RuleEvaluations.Count(e => e.Passed);
     int total = context.RuleEvaluations.Count();
-    if(numPassed != total){
+    if(numPassed == total){
         context.SetMessage("Congratulations! Challenge completed");
         await context.StartNextChallengeAsync();
     } else {
@@ -293,14 +293,14 @@ Lesson.CurrentChallenge.AddRule("Rule: 1.1.4. Positional systems", context =>
 #!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
-    {
-        context.SetMessage("Please wait! We are checking your submission");
-        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
-        int total = context.RuleEvaluations.Count();
-        if(numPassed != total){
-            context.SetMessage("Congratulations! Challenge completed");
-            await context.StartNextChallengeAsync();
-        } else {
-            context.SetMessage("Challenge 1.1.4. is not complete");
-        }
-    });
+{
+    context.SetMessage("Please wait! We are checking your submission");
+    int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+    int total = context.RuleEvaluations.Count();
+    if(numPassed == total){
+        context.SetMessage("Congratulations! Challenge completed");
+        await context.StartNextChallengeAsync();
+    } else {
+        context.SetMessage("Challenge 1.1.4. is not complete");
+    }
+});

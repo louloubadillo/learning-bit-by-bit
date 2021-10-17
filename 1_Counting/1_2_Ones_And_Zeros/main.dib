@@ -1,3 +1,11 @@
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenges.dib"
+
 #!markdown
 
 <h1> 1.2. Ones and Zeros </h1>
@@ -5,3 +13,9 @@
 #!markdown
 
 _In this lesson, you will learn why binary is used as the preferred counting system for computers, the meaning behind 1 and 0, and how it is stored in a computer._
+
+#!markdown
+
+<span style="font-size: 1rem">
+Ok, so computers works with ones and zero's. Why? And how is all of the information stored?
+</span>
