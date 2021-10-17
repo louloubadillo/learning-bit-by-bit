@@ -55,20 +55,11 @@ You'd be wondering how to represent this in a computer, as this introduces yet a
         <td style="background: blue">0</td>
         <td style="background: blue">0</td>
         <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
-        <td style="background: blue">0</td>
     </tr>
     <tr>
         <td> sign </td>
         <td colspan="8">exponent</td>
-        <td colspan="32">mantissa</td>
+        <td colspan="23">mantissa</td>
     </tr>
 </table>
 
@@ -76,3 +67,11 @@ The number it represents is
 $$
 \left(\text{sign}\times-1\right)\times\left( 1 + \text{mantissa}\right)\times2^{\text{exponent}}
 $$
+
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenge.dib"

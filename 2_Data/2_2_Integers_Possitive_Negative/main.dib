@@ -45,13 +45,3 @@ $$
 #!csharp
 
 #!start-lesson --from-file "challenges.dib"
-
-#!markdown
-
-<h2>Challenge</h2>
-
-<mark>_Execute the cell below and input the negative value of your age in binary_</mark>
-
-#!csharp
-
-getNegativeAge();
