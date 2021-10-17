@@ -1,6 +1,25 @@
+#!csharp
+
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
+
 #!markdown
 
 # [Challenge] 2.1. Types of Data
+
+#!csharp
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
 
 #!csharp
 
@@ -16,6 +35,29 @@ Lesson.CurrentChallenge.AddRule("Rule: 2.1. Types of data", context =>
         context.Fail("Verify your answers");
     }
 });
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed == total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 1.2.2. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+
+<h2>Challenge</h2>
+
+You now know how to represent integer numbers using binary. However, as you might have guessed, computers store all sorts of information, not just numbers. 
 
 #!javascript
 
@@ -34,20 +76,13 @@ function verifyChallenge(){
     });
     return true;
 }
-document.querySelector('button').addEventListener('click', async ()=>{
-    let output = verifyChallenge() ? 'true' : 'false';
-    await interactive.submitCode(`
-        Lesson.CurrentChallenge.Evaluate("testDataTypes = () => {return ${output};}");
-    `, 'csharp');
+document.querySelector('button').addEventListener('click', ()=>{
+    // let output = verifyChallenge() ? 'true' : 'false';
+    // await interactive.submitCode(`
+    //     Lesson.CurrentChallenge.Evaluate("testDataTypes = () => {return ${output};}");
+    // `, 'csharp');
+    document.querySelector('button').innerHTML = 'aa'
 })
-
-#!markdown
-
-[Question]
-
-<h2>2.1. Types of data</h2>
-
-You now know how to represent integer numbers using binary. However, as you might have guessed, computers store all sorts of information, not just numbers. 
 
 #!html
 
@@ -60,6 +95,7 @@ You now know how to represent integer numbers using binary. However, as you migh
         <td>
             <select>
                 <option value="int">integer</option>
+                <option value="float">float</option>
                 <option value="char">character</option>
                 <option value="bool">boolean</option>
                 <option value="ref">memory address</option>
@@ -73,6 +109,7 @@ You now know how to represent integer numbers using binary. However, as you migh
         <td>
             <select>
                 <option value="int">integer</option>
+                <option value="float">float</option>
                 <option value="char">character</option>
                 <option value="bool">boolean</option>
                 <option value="ref">memory address</option>
@@ -86,6 +123,7 @@ You now know how to represent integer numbers using binary. However, as you migh
         <td>
             <select>
                 <option value="int">integer</option>
+                <option value="float">float</option>
                 <option value="char">character</option>
                 <option value="bool">boolean</option>
                 <option value="ref">memory address</option>
@@ -99,6 +137,7 @@ You now know how to represent integer numbers using binary. However, as you migh
         <td>
             <select>
                 <option value="int">integer</option>
+                <option value="float">float</option>
                 <option value="char">character</option>
                 <option value="bool">boolean</option>
                 <option value="ref">memory address</option>

@@ -1,0 +1,78 @@
+#!markdown
+
+<h1>2.3. Fractions</h1>
+
+#!markdown
+
+_In this lesson you will learn how fraction numbers are represented in binary using the IEEE 754 specification_
+
+#!markdown
+
+<span style="font-size: 1rem">
+There isn't a mathematical intuition for storing floating point numbers in decimals, so we have to adhere to a common specification
+</span>
+
+#!markdown
+
+If you were to represent thwe number $0.32$ in binary, your intuition would tell you it is something like this. 
+$$ 0.32 = (0.11)_2 $$
+
+#!markdown
+
+You'd be wondering how to represent this in a computer, as this introduces yet another symbol, the dot. For that reason, the Institute of Electrical and Electronics Engineers (IEEE) proposed a standard for the representation of floating point numbers in binary. This goes as follows:
+
+<table style="margin-left: auto; margin-right: auto">
+    <tr style="color: white">
+        <td style="background: red">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: green">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+        <td style="background: blue">0</td>
+    </tr>
+    <tr>
+        <td> sign </td>
+        <td colspan="8">exponent</td>
+        <td colspan="32">mantissa</td>
+    </tr>
+</table>
+
+The number it represents is
+$$
+\left(\text{sign}\times-1\right)\times\left( 1 + \text{mantissa}\right)\times2^{\text{exponent}}
+$$

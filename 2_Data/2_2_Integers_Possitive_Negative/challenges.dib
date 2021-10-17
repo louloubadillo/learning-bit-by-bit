@@ -1,0 +1,47 @@
+#!markdown
+
+# [Challenge] Signed ints
+
+#!csharp
+
+Func<bool> passedSignedIntChallenge = () => 0;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 2.2. Signed int", context =>
+{
+    if(passedSignedIntChallenge()){
+        context.Pass("Awesome! Nice job");
+    } else {
+        context.Fail("Verify your answers");
+    }
+});
+
+#!javascript
+
+const binaryToSignedInt = binStr => parseInt(binStr.length >= 8 && binStr[0] === "1" ?
+  binStr.padStart(32, "1") : binStr.padStart(32, "0"), 2) >> 0;
+
+#!javascript
+
+document.querySelector('button').addEventListener('click', ()=>{
+    let passed = binaryToSignedInt(document.querySelector('input').value) < -1;
+    await interactive.submitCode(`
+        Lesson.CurrentChallenge.Evaluate("passedSignedIntChallenge = () => {return ${passed};}");
+    `, 'csharp');
+})
+
+#!markdown
+
+[Question]
+
+<h2>Challenge</h2>
+
+Using what you learned before, type the negative value of your age in the input below
+
+#!html
+
+<div>
+    <input placeholder="-age">
+    <button>Submit</button>
+<div>

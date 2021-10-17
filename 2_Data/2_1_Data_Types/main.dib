@@ -1,3 +1,11 @@
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenges.dib"
+
 #!markdown
 
 <h1>2.1. Data Types</h1>
@@ -5,3 +13,9 @@
 #!markdown
 
 _In this lesson, you will learn about some of the different types of data and how they are represented using binary._
+
+#!markdown
+
+<h2>Challenge</h2>
+
+You now know how to represent integer numbers using binary. However, as you might have guessed, computers store all sorts of information, not just numbers. 
