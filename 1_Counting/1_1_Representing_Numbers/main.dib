@@ -1,0 +1,21 @@
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenges.dib"
+
+#!markdown
+
+<h1> 1.1. How to represent numbers </h1>
+
+#!markdown
+
+_In this lesson, you will learn the different ways in which any arbitrary quantity may be represented. One such way is binary_
+
+#!markdown
+
+<span style="font-size: 1rem">
+Counting is a fundamental part of our daily lives, and so is having a system that allows us to <strong>represent</strong> and <strong>understand</strong> any given quantity. If you were, for example, curious about the amount of people living in your city, <strong>How would you represent such a quantity?</strong>
+</span>

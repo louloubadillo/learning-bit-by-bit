@@ -26,6 +26,10 @@ Lesson.ResetChallenge();
 
 #!markdown
 
+### [Challenge] Map individually
+
+#!markdown
+
 # Part 1: Counting Systems
 
 #!markdown
@@ -35,10 +39,6 @@ Lesson.ResetChallenge();
 #!markdown
 
 It’s a long summer and you have lots of freetime. Being the curious new mind in the neighborhood you begin to wonder around and explore. Yet one question keeps echoing in your head: how many people live here? So you set yourself up to the task of counting them to find your answer. How would you do it? And how would you represent such a quantity?
-
-#!markdown
-
-### [Challenge] Map individually
 
 #!csharp
 
@@ -99,7 +99,8 @@ The idea of this challenge is to define a function that counts the number of dot
 
 Counting = inputArray =>
 {
-    throw new NotImplementedException(); // Write your answer here
+    // Write your answer here
+    throw new NotImplementedException();
 };
 
 #!markdown

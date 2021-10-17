@@ -1,0 +1,285 @@
+#!csharp
+
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
+
+#!markdown
+
+# [Challenge] On/Off Basic
+
+#!csharp
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
+
+#!csharp
+
+Func<int> iWantToContinueLearning = () => 0;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 1.2.1. On/Off Basic", context =>
+{
+    if(iWantToContinueLearning() == 1){
+        context.Pass("Awesome! Let's keep on going");
+    } else {
+        context.Fail("Make a function that returns 1 if you want to continue learning.");
+    }
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed != total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 1.2.2. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+<h2> 1.2.1. On/Off Basic </h2>
+
+#!html
+
+<style>
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    
+  }
+  h1 {text-align: center;}
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+</style>
+<div id='container'>
+  <label class="switch">
+    <input type="checkbox">
+    <span class="slider"></span>
+  </label>
+  <h1>0</h1>
+  <script>
+    document.querySelector('input').addEventListener('change', e=>{
+        document.querySelector('h1').innerHTML = event.currentTarget.checked ? '1' : '0'
+    })
+  </script>
+</div>
+
+#!markdown
+
+Binay can be used to represent anything with two states: sad/happy, cheap/expensive, love/hate, and also **on/off**. In the context of electronic devices (such as computers) it is convention to think of 1 as ON (has flow of electricity) and 0 as OFF (doesn't have flow of electricity).
+
+<mark>_Make a function that returns 1 if you want to continue learning._</mark>
+
+#!html
+
+iWantToContinueLearning = () =>
+{
+    // Answer here
+    throw new NotImplementedException(); 
+};
+
+#!markdown
+
+# [Challenge] Bits and bytes
+
+#!html
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
+
+#!html
+
+Func<int> numberOfCombinationsIn8Bits = () => 0;
+
+#!html
+
+Lesson.CurrentChallenge.AddRule("Rule: 1.2.2. Bits and bytes", context =>
+{
+    if(numberOfCombinationsIn8Bits() == Math.pow(2,8)){
+        context.Pass("Awesome! Let's keep on going");
+    } else {
+        context.Fail("Make a function that returns 1 if you want to continue learning.");
+    }
+});
+
+#!html
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed != total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 1.2.2. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+<h2> 1.2.2. Bits and bytes </h2>
+
+In the example beofre, we saw how a single switch could represent either 0 or 1, ON or OFF. 
+
+The **bit** (binary digit) is the most basic unit of information in binary. As we saw in the previous chapter, a collection of bits can represent bigger numbers or states.
+
+A **byte** consists of a sequence of **8 bits**
+
+<mark>_Write a program that outputs the number of possible combinations in 8 bits_</mark>
+
+#!html
+
+numberOfCombinationsIn8Bits = () =>
+{
+    // Answer here
+    throw new NotImplementedException(); 
+};
+
+#!markdown
+
+# [Challenge] Bytes, why?
+
+#!html
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
+
+#!html
+
+Func<int, int> getSizeInBytes = () => 0;
+
+#!html
+
+Lesson.CurrentChallenge.AddRule("Rule: 1.2.3. Bytes, why?", context =>
+{
+    Random rnd = new Random();
+    int n = rnd.Next(100000);
+    string binary = Convert.ToString(n, 2);
+    int bytes = Math.ceil( binary.length/8 );
+
+    if(getSizeInBytes(n) == bytes){
+        context.Pass("Correct!");
+    } else {
+        context.Fail("Try again.");
+    }
+});
+
+#!html
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed != total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 1.2.3. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+
+<h2>1.2.3. Bytes, why? </h2>
+
+You might be wondering, why do we need to divide bits in bytes. After all, 254 is not a very big number. You'd be right. However, computers store multiple values simultaneously. 
+
+Take a book for example. Having multiple fixed-width lines of content makes it easier to read and understand, as opposed to having all of the text in a single line. 
+! Insert image
+
+Bytes allow to split the information into manageable _chunks_.
+
+<mark>_Write a program that receives a number and outputs its size in bytes_</mark>
+
+#!html
+
+getSizeInBytes = n =>
+{
+    // Answer here
+    throw new NotImplementedException(); 
+};
+
+#!markdown
+
+# [Challenge] How is it all stored
+
+#!markdown
+
+[Question]
+
+<h2>1.2.4. How is it all stored</h2>
+
+By now you know that everything in the computer is stored as ones and zero's. However, you might wonder how is all of this information stored and how one might make sense of it.
+
+To make it easier to identify specific locations in memory, we arrange it as a table of bytes.
+
+! Insert image
+! Activity proposal: write a function that receives row-col coordinates of a memory address and outputs its contents. 
