@@ -4,7 +4,7 @@
 
 #!csharp
 
-#!start-lesson --from-file "challenges2.dib"
+#!start-lesson --from-file "challenges.dib"
 
 #!markdown
 

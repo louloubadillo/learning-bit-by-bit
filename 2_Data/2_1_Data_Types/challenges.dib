@@ -1,88 +1,62 @@
 #!csharp
 
-//Packages
 #r "nuget: Interactive.Journey"
-#r "nuget: Interactive.Extension.ImageSharp"
-//Libraries
-using Microsoft.DotNet.Interactive.Journey;
 using Microsoft.DotNet.Interactive;
-using Microsoft.DotNet.Interactive.Commands;
-using Microsoft.DotNet.Interactive.CSharp;
-using Microsoft.DotNet.Interactive.Events;
-using SixLabors.ImageSharp;
-using System.IO;
-
-#!markdown
-
-# [Challenge] 2.1. Types of Data
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive.Formatting;
 
 #!csharp
 
-//Reset the challenge before starting a new one
-Lesson.ResetChallenge();
+bool correctDataTypes = false;
 
 #!csharp
 
-Func<bool> testDataTypes = () => false;
-
-#!csharp
-
-Lesson.CurrentChallenge.AddRule("Rule: 2.1. Types of data", context =>
+Lesson.CurrentChallenge.AddRule("Rule: 2.1. Data types", context =>
 {
-    if(testDataTypes()){
-        context.Pass("Awesome! Nice job");
+    if(correctDataTypes){
+        context.Pass("Awesome! Let's keep on going");
     } else {
-        context.Fail("Verify your answers");
+        context.Fail("Check your answer.");
     }
 });
 
 #!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
-    {
-        context.SetMessage("Please wait! We are checking your submission");
-        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
-        int total = context.RuleEvaluations.Count();
-        if(numPassed == total){
-            context.SetMessage("Congratulations! Challenge completed");
-            await context.StartNextChallengeAsync();
-        } else {
-            context.SetMessage("Challenge 1.2.2. is not complete");
-        }
-    });
+{
+    context.SetMessage("Please wait! We are checking your submission");
+    int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+    int total = context.RuleEvaluations.Count();
+    if(numPassed == total){
+        context.SetMessage("Congratulations! Challenge completed");
+        await context.StartNextChallengeAsync();
+    } else {
+        context.SetMessage("Challenge 2.1. is not complete");
+    }
+});
+
+#!markdown
+
+# [Challenge] Data Types
+
+#!javascript
+
+window.verifyDataTypes = function(){
+    let data = [...document.querySelectorAll('select')].map(l=>l.value);
+    let result = true;
+    if(data[0] != 'float') result = false;
+    if(data[1] != 'int') result = false;
+    if(data[2] != 'char') result = false;
+    if(data[3] != 'bool') result = false;
+    interactive.submitCode(`correctDataTypes = ${result};`, 'csharp');
+}
 
 #!markdown
 
 [Question]
-
 <h2>Challenge</h2>
 
-You now know how to represent integer numbers using binary. However, as you might have guessed, computers store all sorts of information, not just numbers. 
-
-#!javascript
-
-function verifyChallenge(){
-    document.querySelectorAll("table tr").forEach((row, i)=>{
-        if(i!=0){
-            let select = row.querySelector('select');
-            let selectedOption = select.options[select.selectedValueIndex]?.value;
-            let definition = row.querySelectorAll('td')[1].innerHTML;
-
-            if(definition == 'Represents a fraction number' && selectedOption != 'float') return false;
-            if(definition == 'Represents an integer number' && selectedOption != 'integer') return false;
-            if(definition == 'Represents an alphanumeric character' && selectedOption != 'char') return false;
-            if(definition == 'Represents a true/false value' && selectedOption != 'bool') return false;
-        }
-    });
-    return true;
-}
-document.querySelector('button').addEventListener('click', ()=>{
-    // let output = verifyChallenge() ? 'true' : 'false';
-    // await interactive.submitCode(`
-    //     Lesson.CurrentChallenge.Evaluate("testDataTypes = () => {return ${output};}");
-    // `, 'csharp');
-    document.querySelector('button').innerHTML = 'aa'
-})
+<mark>_FIll in the blanks to match each data type_</mark>
 
 #!html
 
@@ -94,11 +68,11 @@ document.querySelector('button').addEventListener('click', ()=>{
     <tr>
         <td>
             <select>
-                <option value="int">integer</option>
+                <option value="int">int</option>
                 <option value="float">float</option>
-                <option value="char">character</option>
-                <option value="bool">boolean</option>
-                <option value="ref">memory address</option>
+                <option value="char">char</option>
+                <option value="bool">bool</option>
+                <option value="ref">ref</option>
             </select>
         </td>
         <td>
@@ -108,11 +82,11 @@ document.querySelector('button').addEventListener('click', ()=>{
     <tr>
         <td>
             <select>
-                <option value="int">integer</option>
+                <option value="int">int</option>
                 <option value="float">float</option>
-                <option value="char">character</option>
-                <option value="bool">boolean</option>
-                <option value="ref">memory address</option>
+                <option value="char">char</option>
+                <option value="bool">bool</option>
+                <option value="ref">ref</option>
             </select>
         </td>
         <td>
@@ -122,11 +96,11 @@ document.querySelector('button').addEventListener('click', ()=>{
     <tr>
         <td>
             <select>
-                <option value="int">integer</option>
+                <option value="int">int</option>
                 <option value="float">float</option>
-                <option value="char">character</option>
-                <option value="bool">boolean</option>
-                <option value="ref">memory address</option>
+                <option value="char">char</option>
+                <option value="bool">bool</option>
+                <option value="ref">ref</option>
             </select>
         </td>
         <td>
@@ -136,11 +110,11 @@ document.querySelector('button').addEventListener('click', ()=>{
     <tr>
         <td>
             <select>
-                <option value="int">integer</option>
+                <option value="int">int</option>
                 <option value="float">float</option>
-                <option value="char">character</option>
-                <option value="bool">boolean</option>
-                <option value="ref">memory address</option>
+                <option value="char">char</option>
+                <option value="bool">bool</option>
+                <option value="ref">ref</option>
             </select>
         </td>
         <td>
@@ -148,5 +122,11 @@ document.querySelector('button').addEventListener('click', ()=>{
         </td>
     </tr>
 <table>
-<p>
-<button id="2_1_challenge_submit">Submit</button>
+
+#!javascript
+
+verifyDataTypes()
+
+#!csharp
+
+display(correctDataTypes) 
