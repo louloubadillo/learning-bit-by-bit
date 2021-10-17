@@ -1,0 +1,113 @@
+#!markdown
+
+# [Challenge] 2.1. Types of Data
+
+#!csharp
+
+Func<bool> testDataTypes = () => false;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 2.1. Types of data", context =>
+{
+    if(testDataTypes()){
+        context.Pass("Awesome! Nice job");
+    } else {
+        context.Fail("Verify your answers");
+    }
+});
+
+#!javascript
+
+function verifyChallenge(){
+    document.querySelectorAll("table tr").forEach((row, i)=>{
+        if(i!=0){
+            let select = row.querySelector('select');
+            let selectedOption = select.options[select.selectedValueIndex]?.value;
+            let definition = row.querySelectorAll('td')[1].innerHTML;
+
+            if(definition == 'Represents a fraction number' && selectedOption != 'float') return false;
+            if(definition == 'Represents an integer number' && selectedOption != 'integer') return false;
+            if(definition == 'Represents an alphanumeric character' && selectedOption != 'char') return false;
+            if(definition == 'Represents a true/false value' && selectedOption != 'bool') return false;
+        }
+    });
+    return true;
+}
+document.querySelector('button').addEventListener('click', async ()=>{
+    let output = verifyChallenge() ? 'true' : 'false';
+    await interactive.submitCode(`
+        Lesson.CurrentChallenge.Evaluate("testDataTypes = () => {return ${output};}");
+    `, 'csharp');
+})
+
+#!markdown
+
+[Question]
+
+<h2>2.1. Types of data</h2>
+
+You now know how to represent integer numbers using binary. However, as you might have guessed, computers store all sorts of information, not just numbers. 
+
+#!html
+
+<table id="2_1_challenge">
+    <tr>
+        <th>Data type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>
+            <select>
+                <option value="int">integer</option>
+                <option value="char">character</option>
+                <option value="bool">boolean</option>
+                <option value="ref">memory address</option>
+            </select>
+        </td>
+        <td>
+            Represents a fraction number
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select>
+                <option value="int">integer</option>
+                <option value="char">character</option>
+                <option value="bool">boolean</option>
+                <option value="ref">memory address</option>
+            </select>
+        </td>
+        <td>
+            Represents an integer number
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select>
+                <option value="int">integer</option>
+                <option value="char">character</option>
+                <option value="bool">boolean</option>
+                <option value="ref">memory address</option>
+            </select>
+        </td>
+        <td>
+            Represents an alphanumeric character
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <select>
+                <option value="int">integer</option>
+                <option value="char">character</option>
+                <option value="bool">boolean</option>
+                <option value="ref">memory address</option>
+            </select>
+        </td>
+        <td>
+            Represents a true/false value
+        </td>
+    </tr>
+<table>
+<p>
+<button id="2_1_challenge_submit">Submit</button>
