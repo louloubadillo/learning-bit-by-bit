@@ -1,19 +1,98 @@
+#!markdown
+
+<h1> 3.2. Arithmethic </h1>
+
+#!markdown
+
+_In this lesson you will learn how to add together two int values using logic gates_
+
+#!markdown
+
+<span style="font-size: 1rem">
+
+Okay so logic gates allow for decision making but I thought computers were used to make calculations.
+</span>
+
+#!markdown
+
+Binary, like decimal is a numbering system and therefore allows to perform all types of operations using the same rules we all know and love (or hate). For example, to add two binary numbers together...
+
+#!markdown
+
+$$
+\begin{align*}
+    && 0 && 0 && 0 && 0 && 0 && 1 && 0 && 1 && \\
+  + && 0 && 0 && 0 && 0 && 1 && 0 && 0 && 0 && \\ \\
+  \hline \\
+    && 0 && 0 && 0 && 0 && 1 && 1 && 0 && 1
+\end{align*}
+$$
+
+#!markdown
+
+Just like in the decimal number, whenever a number is too big to fit onto a single digit, the remaining value is _carried over_ to the next right digit. 
+
+#!markdown
+
+$$
+\begin{align*}
+    &&  \textcolor{blue}1   &&  \textcolor{blue}1   &&  \textcolor{blue}1   &&     &&     &&  \textcolor{blue}1   &&  \textcolor{blue}1   &&     && \\ \\
+    &&  0   &&  1   &&  1   &&  1   &&  0   &&  0   &&  1   &&  1   && \\
+  + &&  0   &&  1   &&  0   &&  1   &&  1   &&  0   &&  0   &&  1   && \\ 
+  \hline \\
+    &&  1   &&  1   &&  0   &&  0   &&  1   &&  1   &&  0   &&  0   
+\end{align*}
+$$
+
+#!markdown
+
+Let's begin by focusing on the rightmost column, we need to come up with a solution to add two binary numbers together and output a `sum` and a `carry`. Let's look at all the test cases:
+
+<table style="margin: auto">
+    <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A+B</th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>00</td>
+    <tr>
+    <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>01</td>
+    <tr>
+    <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>01</td>
+    <tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>11</td>
+    <tr>
+</table>
+
+As you can see, the leftmost value in the sum is the `carry`, and the rightmost is the `sum`. We can then define them as:
+
+<div style="margin: auto; text-align: center">
+carry = A and B <br>
+sum = A xor B
+</div>
+
+ 
+
+#!markdown
+
+The next column should receive three bits as input and add them together. We call this a **full adder**.
+
 #!csharp
 
-using System.Net;
-using Microsoft.DotNet.Interactive.Formatting;
-using System;  
-using System.IO;  
-using System.Text; 
+#r "nuget: Interactive.Journey"
 
-string readTextFromUrl(string url) {
-    // WebClient is still convenient
-    // Assume UTF8, but detect BOM - could also honor response charset I suppose
-    using (var client = new WebClient())
-    using (var stream = client.OpenRead(url))
-    using (var textReader = new StreamReader(stream, Encoding.UTF8, true)) {
-        return textReader.ReadToEnd();
-    }
-}
+#!csharp
 
-display(readTextFromURL("https://example.com"));
+#!start-lesson --from-file "challenge.dib"

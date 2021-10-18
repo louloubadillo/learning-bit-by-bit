@@ -1,18 +1,20 @@
 #!csharp
 
-bool[] halfAdder(bool a, bool b){
-    bool[] output = new bool[2];
-    // Carry
-    output[0] = a && b;
-    // Sum
-    output[1] = a ^ b;
-    // Return both
-    return output;
-}
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
 
 #!csharp
 
-bool[] fullAdder(bool a, bool b, bool c){
+bool[] fullAdderExample(bool a, bool b, bool c){
     bool[] halfAdder1 = halfAdder(a,b);
     bool[] halfAdder2 = halfAdder(halfAdder1[1], c);
 
@@ -25,6 +27,119 @@ bool[] fullAdder(bool a, bool b, bool c){
     return output;
 }
 
+#!markdown
+
+# [Challenge] 3.2.1. Implement a full summator 
+
 #!csharp
 
-bool[]
+bool[] halfAdder(bool a, bool b){
+    bool[] output = new bool[2];
+    // Sum
+    output[0] = a ^ b;
+    // Carry
+    output[1] = a && b;
+    // Return both
+    return output;
+}
+
+#!csharp
+
+Func<bool,bool,bool, bool[]> fullAdder = (a,b,c)=>new bool[2] {false, false};
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (0 + 0 + 0)", context =>{
+    bool[] result = fullAdder(false, false, false);
+    if(result[0] != false || result[1] != false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (0 + 0 + 1)", context =>{
+    bool[] result = fullAdder(false, false, true);
+    if(result[0] != true || result[1] != false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (0 + 1 + 0)", context =>{
+    bool[] result = fullAdder(false, true, false);
+    if(result[0] != true || result[1] != false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (0 + 1 + 1)", context =>{
+    bool[] result = fullAdder(false, true, true);
+    if(result[0] != false || result[1] != true) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (1 + 0 + 0)", context =>{
+    bool[] result = fullAdder(true, false, false);
+    if(result[0] != true || result[1] != false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (1 + 0 + 1)", context =>{
+    bool[] result = fullAdder(true, false, true);
+    if(result[0] != false || result[1] != true) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (1 + 0 + 0)", context =>{
+    bool[] result = fullAdder(true, true, false);
+    if(result[0] != false || result[1] != true) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.2.1 Full Adder (1 + 0 + 1)", context =>{
+    bool[] result = fullAdder(true, true, true);
+    if(result[0] != false || result[1] != true) context.Pass();
+    else context.Fail();
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed == total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 3.1.2. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+
+<h2> 3.2.1. Full Adder </h2>
+
+<mark>_Using the same logic as before, and a function `halfAdder(bool a, bool b)` that outputs `[sum, carry]`, implement a full adder.</mark>
+
+#!csharp
+
+fullAdder = (a, b, c) => {
+    bool[] result = new bool[2];
+    // Code here 
+    // Outputs [sum, carry]
+    return result;
+};
+
+#!markdown
+
+# [Challenge] 3.2.2. Other operations
+
+#!markdown
+
+[Question]
+
+### Congratulations! You have just made your own summator. 
+
+### If we hook several copies together you can add whole integers together.
+
+### If you recall the lesson on signed ints, you can also perform **substraction**.
+
+### You can repeat this process several times, you can perform **multiplication**. 
+
+
+
+<div style="padding: 1em; border: 1px solid black; font-weight: 600; font-size: 1rem">
+    Using several of these operations with logic gates, you can build a basic computer. 
+</div>
