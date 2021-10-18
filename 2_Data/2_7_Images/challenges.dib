@@ -23,11 +23,55 @@ Lesson.ResetChallenge();
 
 #!csharp
 
-// On submit code 
+Func<int[,,], int> guessImage = (img) => 0;
+int[,,] image1;
+int[,,] image2;
+int[,,] image3;
+int[,,] image4;
+int[,,] image5;
 
 #!csharp
 
-// Add rules
+Lesson.CurrentChallenge.AddRule("2.7. Image 1", context =>
+{
+    if(guessImage(image1) == 1) context.Pass("Image 1: Correct");
+    else context.Fail("Image 1: Incorrect");
+});
+Lesson.CurrentChallenge.AddRule("2.7. Image 2", context =>
+{
+    if(guessImage(image1) == 2) context.Pass("Image 2: Correct");
+    else context.Fail("Image 2: Incorrect");
+});
+Lesson.CurrentChallenge.AddRule("2.7. Image 3", context =>
+{
+    if(guessImage(image1) == 3) context.Pass("Image 3: Correct");
+    else context.Fail("Image 3: Incorrect");
+});
+Lesson.CurrentChallenge.AddRule("2.7. Image 4", context =>
+{
+    if(guessImage(image1) == 4) context.Pass("Image 4: Correct");
+    else context.Fail("Image 4: Incorrect");
+});
+Lesson.CurrentChallenge.AddRule("2.7. Image 5", context =>
+{
+    if(guessImage(image1) == 5) context.Pass("Image 5: Correct");
+    else context.Fail("Image 5: Incorrect");
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed == total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 2.7. is not complete");
+        }
+    });
 
 #!csharp
 
