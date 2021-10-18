@@ -14,7 +14,7 @@ There isn't a mathematical intuition for storing floating point numbers in decim
 
 #!markdown
 
-If you were to represent thwe number $0.32$ in binary, your intuition would tell you it is something like this. 
+If you were to represent thee number $0.32$ in binary, your intuition would tell you it is something like this. 
 $$ 0.32 = (0.11)_2 $$
 
 #!markdown

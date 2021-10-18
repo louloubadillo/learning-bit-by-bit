@@ -29,7 +29,7 @@ string[] friends = {"Lourdes", "Joaquin", "Ricardo", "Eduardo"};
 
 <h2> Indices </h2>
 
-Arrays are ordered lists, so you might have to access the $n$-th value of an array (important! remember the first element of an array has $n=1$) You can do this using the brackets [] operator on most programming languages.
+Arrays are ordered lists, so you might have to access the $n$-th value of an array (important! remember the first element of an array has $n=0$) You can do this using the brackets [] operator on most programming languages.
 
 ```cpp
 friends[1]
