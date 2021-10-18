@@ -1,0 +1,30 @@
+#!csharp
+
+bool[] halfAdder(bool a, bool b){
+    bool[] output = new bool[2];
+    // Carry
+    output[0] = a && b;
+    // Sum
+    output[1] = a ^ b;
+    // Return both
+    return output;
+}
+
+#!csharp
+
+bool[] fullAdder(bool a, bool b, bool c){
+    bool[] halfAdder1 = halfAdder(a,b);
+    bool[] halfAdder2 = halfAdder(halfAdder1[1], c);
+
+    bool[] output = new bool[2];
+    // Carry
+    output[0] = halfAdder1[0] || halfAdder2[0];
+    // Sum
+    output[1] = halfAdder2[1];
+    // Return both
+    return output;
+}
+
+#!csharp
+
+bool[]
