@@ -48,7 +48,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
             context.SetMessage("Congratulations! Challenge completed");
             await context.StartNextChallengeAsync();
         } else {
-            context.SetMessage("Challenge 1.1.4. is not complete");
+            context.SetMessage("Challenge 3.1.2. is not complete");
         }
     });
 
@@ -81,6 +81,97 @@ orGate = (a, b) => {
 
 // NOT GATE
 notGate = (a) => {
+    // Code here
+    return false;
+};
+
+#!markdown
+
+# [Challenge] More logic gates
+
+#!csharp
+
+Func<bool,bool,bool> andGate = (a,b)=> a && b;
+Func<bool,bool,bool> orGate = (a,b)=> a || b;
+Func<bool,bool> notGate = (a)=> !a;
+
+Func<bool,bool,bool> xorGate = (a, b) => false;
+Func<bool,bool,bool> nandGate = (a, b)=> false;
+Func<bool,bool,bool> norGate = (a, b)=> false;
+Func<bool,bool,bool> xnorGate = (a, b)=> false;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.3. XOR Gate", context =>{
+    if(xorGate(false, false) == false && xorGate(false, true) == true && xorGate(true, false) == true && xorGate(true,true) == false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.3. NAND Gate", context =>{
+    if(nandGate(false, false) == true && nandGate(false, true) == true && nandGate(true, false) == true && nandGate(true,true) == false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.3. NOR Gate", context =>{
+    if(norGate(false, false) == true && norGate(false, true) == false && norGate(true, false) == false && norGate(true,true) == false) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.3. XNOR Gate", context =>{
+    if(xnorGate(false, false) == true && xnorGate(false, true) == false && xnorGate(true, false) == false && xnorGate(true,true) == true) context.Pass();
+    else context.Fail();
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed == total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 3.1.2. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+<h2> 3.1.3 More logic gates </h2>
+
+There are some other logic gates
+
+<mark>_Use the table below to program the logic gates._</mark>
+
+| GATE | SYMBOLS | DESCRIPTION |
+| ---- | ------- | ----------- |
+| XOR | ^ | Returns `true` when ONLY ONE of the outputs is `true` |
+| NAND | NAND | Returns the opposite of the AND gate | 
+| NOR | NOR | Returns the opposite of the OR gate |
+| XNOR | XNOR | Return the opposite of the XOR gate | 
+
+#!csharp
+
+// XOR GATE
+xorGate = (a, b) => {
+    // Code here
+    return false;
+};
+
+// NAND GATE
+nandGate = (a, b) => {
+    // Code here
+    return false;
+};
+
+// NOR GATE
+norGate = (a, b) => {
+    // Code here
+    return false;
+};
+
+// XNOR GATE
+xnorGate = (a, b) => {
     // Code here
     return false;
 };
