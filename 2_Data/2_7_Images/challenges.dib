@@ -39,22 +39,22 @@ Lesson.CurrentChallenge.AddRule("2.7. Image 1", context =>
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 2", context =>
 {
-    if(guessImage(image1) == '1') context.Pass("Image 2: Correct");
+    if(guessImage(image2) == '1') context.Pass("Image 2: Correct");
     else context.Fail("Image 2: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 3", context =>
 {
-    if(guessImage(image1) == 'i') context.Pass("Image 3: Correct");
+    if(guessImage(image3) == 'i') context.Pass("Image 3: Correct");
     else context.Fail("Image 3: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 4", context =>
 {
-    if(guessImage(image1) == 'e') context.Pass("Image 4: Correct");
+    if(guessImage(image4) == 'e') context.Pass("Image 4: Correct");
     else context.Fail("Image 4: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 5", context =>
 {
-    if(guessImage(image1) == 'pi') context.Pass("Image 5: Correct");
+    if(guessImage(image5) == 'pi') context.Pass("Image 5: Correct");
     else context.Fail("Image 5: Incorrect");
 });
 
