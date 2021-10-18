@@ -123,3 +123,11 @@ Below is a table of all the characters in ASCII. Note that characters 0-31 are c
 |} | 125 | right curly brace |
 |~ | 126 | tilde |
  | |  |
+
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenge.dib"

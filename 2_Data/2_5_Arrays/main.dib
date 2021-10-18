@@ -37,3 +37,11 @@ friends[1]
 ```bash
 > "Joaquin"
 ```
+
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenge.dib"
