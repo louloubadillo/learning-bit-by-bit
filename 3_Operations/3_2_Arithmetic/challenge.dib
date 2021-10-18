@@ -111,7 +111,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
 
 <h2> 3.2.1. Full Adder </h2>
 
-<mark>_Using the same logic as before, and a function `halfAdder(bool a, bool b)` that outputs `[sum, carry]`, implement a full adder.</mark>
+<mark>_Using the same logic as before, and a function `halfAdder(bool a, bool b)` that outputs `[sum, carry]`, implement a full adder._</mark>
 
 #!csharp
 

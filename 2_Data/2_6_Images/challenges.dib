@@ -79,7 +79,9 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
 
 <h2> Challenge </h2>
 
-Consider the arrays below...
+Consider the following arrays. These have been made to match one of the following symbols as an image:
+
+$1$, $0$, $\pi$, $e$, $i$
 
 #!csharp
 
