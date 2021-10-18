@@ -67,7 +67,7 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
 
 An immediate solution to the counting problem might be grabbing a piece of paper and marking a dot per person. The more items there are in the set, the more dots there would be on the paper.
 
-<mark>_Write a program that receives a string dots and counts them._</mark>
+<mark>_Write a program that receives a string of dots and counts them._</mark>
 
 #!csharp
 
@@ -231,10 +231,8 @@ The grouping solution works great. However you quickly realize that:
 
 You come up with a great idea:
 1. You draw rectangles that can represent up to a maximum number
-2. When a rectangle is fill you add another one to its left
-3. Hence each unit on a rectangle equals the maximum value of the rectangle to its right
-
-! Add manim animation here
+2. When a rectangle is filled you add another one to its left
+3. Hence each unit on a rectangle equals the maximum value of the rectangle to its right.
 
 <mark>_Assuming each rectangle can represent a quantity up to 5, write a program that receives a 2D array and returns the represented number according to the rules above._</mark>
 
@@ -260,7 +258,7 @@ countGroupPosition = arr =>
 
 What if instead of using boxes of dots we assign each value inside the rectangle its own symbol? We would have a limited amount of symbols and would rely on position to give them meaning. You might be thinking "wait, isn't that how we count?", and you would be right: **that is how the decimal system works.**
 
-In the decimal systems we use 10 different symbols, and each position represents a different power of 10. Using this, we can succesfully represent huge quantities without compromising on space or understanding. 
+In the decimal system we use 10 different symbols, and each position represents a different power of 10. Using this, we can succesfully represent huge quantities without compromising on space or understanding. 
 
 It is believed that 10 is used globally as the _default_ base bacause most of us have 10 fingers. However we can take this idea to its simplest: using only 2 symbols. **This system is called BINARY, and is at the heart of Computer Science**
 

@@ -9,7 +9,7 @@ _In this lesson, you will learn how integer representations for signed and unsig
 #!markdown
 
 <span style="font-size: 1rem">
-I now know how to represent (possitive) integer values in binary. But how do I represent a negative value?
+I now know how to represent (positive) integer values in binary. But how do I represent a negative value?
 </span>
 
 #!markdown
@@ -33,7 +33,7 @@ As you can see, the maximum absolute quantity for signed ints is smaller than un
 
 ## From decimal to binary
 
-As per the above, the following formula can be used to represent a signed int in binary (MST stands for most significant bit)
+As per the above, the following formula can be used to represent a signed int in binary (MSB stands for most significant bit)
 
 $$
 -\text{MSB} + x = -n

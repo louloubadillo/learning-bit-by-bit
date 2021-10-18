@@ -132,7 +132,7 @@ Binay can be used to represent anything with two states: sad/happy, cheap/expens
 
 <mark>_Make a function that returns 1 if you want to continue learning._</mark>
 
-#!html
+#!csharp
 
 iWantToContinueLearning = () =>
 {
@@ -144,27 +144,27 @@ iWantToContinueLearning = () =>
 
 # [Challenge] Bits and bytes
 
-#!html
+#!csharp
 
 //Reset the challenge before starting a new one
 Lesson.ResetChallenge();
 
-#!html
+#!csharp
 
 Func<int> numberOfCombinationsIn8Bits = () => 0;
 
-#!html
+#!csharp
 
 Lesson.CurrentChallenge.AddRule("Rule: 1.2.2. Bits and bytes", context =>
 {
-    if(numberOfCombinationsIn8Bits() == Math.pow(2,8)){
+    if(numberOfCombinationsIn8Bits() == Math.Pow(2,8)){
         context.Pass("Awesome! Let's keep on going");
     } else {
         context.Fail("Make a function that returns 1 if you want to continue learning.");
     }
 });
 
-#!html
+#!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
     {
@@ -192,7 +192,7 @@ A **byte** consists of a sequence of **8 bits**
 
 <mark>_Write a program that outputs the number of possible combinations in 8 bits_</mark>
 
-#!html
+#!csharp
 
 numberOfCombinationsIn8Bits = () =>
 {
@@ -204,23 +204,23 @@ numberOfCombinationsIn8Bits = () =>
 
 # [Challenge] Bytes, why?
 
-#!html
+#!csharp
 
 //Reset the challenge before starting a new one
 Lesson.ResetChallenge();
 
-#!html
+#!csharp
 
-Func<int, int> getSizeInBytes = () => 0;
+Func<int, int> getSizeInBytes = (n) => 0;
 
-#!html
+#!csharp
 
 Lesson.CurrentChallenge.AddRule("Rule: 1.2.3. Bytes, why?", context =>
 {
     Random rnd = new Random();
     int n = rnd.Next(100000);
     string binary = Convert.ToString(n, 2);
-    int bytes = Math.ceil( binary.length/8 );
+    int bytes = (int) Math.Ceiling((decimal) (binary.Length / 8));
 
     if(getSizeInBytes(n) == bytes){
         context.Pass("Correct!");
@@ -229,7 +229,7 @@ Lesson.CurrentChallenge.AddRule("Rule: 1.2.3. Bytes, why?", context =>
     }
 });
 
-#!html
+#!csharp
 
 Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
     {
@@ -259,7 +259,7 @@ Bytes allow to split the information into manageable _chunks_.
 
 <mark>_Write a program that receives a number and outputs its size in bytes_</mark>
 
-#!html
+#!csharp
 
 getSizeInBytes = n =>
 {
