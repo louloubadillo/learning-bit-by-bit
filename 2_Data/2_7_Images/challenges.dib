@@ -1,0 +1,50 @@
+#!csharp
+
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
+
+#!markdown
+
+# [Challenge] Bitmaps
+
+#!csharp
+
+//Reset the challenge before starting a new one
+Lesson.ResetChallenge();
+
+#!csharp
+
+// On submit code 
+
+#!csharp
+
+// Add rules
+
+#!csharp
+
+int[,,] image1 = new int[8,8,3] {
+       {{1, 1, 1}, {1, 1, 1},{1, 1, 1},{1, 1, 1},{1, 1, 1},{1, 1, 1},{1, 1, 1},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{0, 0, 0},{0, 0, 0},{1, 1, 1},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1}},
+
+       {{1, 1, 1},{1, 1, 1},{1, 1, 1},{0, 0, 0},{0, 0, 0},{0, 0, 0},{1, 1, 1},{1, 1, 1}}
+};
