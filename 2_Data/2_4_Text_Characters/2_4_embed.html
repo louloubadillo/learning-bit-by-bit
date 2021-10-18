@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Embedded content) 2.4.</title>
+</head>
+<style>
+    body{
+        background-color: whitesmoke;
+        height: 200px;
+    }
+    #input, #output{
+        margin: 8px;
+        padding: 16px;
+    }
+    #input{
+        border: 1px solid lightgray;
+        background: white;
+        font-size: 1.5rem;
+    }
+    #output{
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-wrap: break-word;
+    }
+</style>
+<body>
+    <div id="input" contenteditable="">Type some text here</div>
+    <div id="output">1010100111100111100001100101100000111001111011111101101110010110000011101001100101111100011101001000001101000110010111100101100101</div>
+
+    <script>
+        function stringToASCII(string){
+            let ascii = "";
+            for (var i = 0; i < string.length; i ++)
+                ascii += string[i].charCodeAt(0).toString(2);
+            return ascii;
+        }
+        document.querySelector('#input').addEventListener('input', ()=>{
+            document.querySelector('#output').innerHTML = stringToASCII(document.querySelector('#input').innerHTML);
+        })
+    </script>
+</body>
+</html>

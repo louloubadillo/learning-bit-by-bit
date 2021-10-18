@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(Embedded content) 1.2.1.</title>
+</head>
+<style>
+    body {
+        background: whitesmoke;
+        padding: 0;
+        margin: 0;
+        height: 400px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 16px;
+    }
+
+    label.switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default checkbox */
+    .switch input {
+        display: none;
+    }
+
+    /* Slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider::before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    /* Change when checked */
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+
+    input:checked+.slider::before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    .byte {
+        display: flex;
+        column-gap: 8px;
+        justify-content: space-around;
+        padding: 8px;
+        background: white;
+    }
+    .bit{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="byte">
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+        <div class="bit">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <h1>0</h1>
+        </div>
+    </div>
+    <h1 id="output"> = 0</h1>
+
+
+
+
+    <script>
+        document.querySelectorAll('.bit').forEach(bit => {
+            bit.querySelector('input').addEventListener('change', e => {
+                bit.querySelector('h1').innerHTML = event.currentTarget.checked ? '1' : '0';
+                calculateOutput();
+            })
+        })
+        function calculateOutput(){
+            let bits = [...document.querySelectorAll('.bit')].map(bit => bit.querySelector('h1').innerHTML).join('');
+            console.log(bits)
+            document.querySelector('#output').innerHTML = "= " + parseInt(bits, 2);
+        }    
+    </script>
+</body>
+
+</html>
