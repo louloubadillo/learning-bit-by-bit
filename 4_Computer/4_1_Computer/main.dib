@@ -1,0 +1,28 @@
+#!markdown
+
+<h1> 4.1. What is a computer? </h1>
+
+#!markdown
+
+_In this lesson you will reflect on how you just learned the very fundamentals of how a computer works._
+
+#!markdown
+
+<span style="font-size: 1rem">
+
+Wow! This was very interesting, but what are the next steps?
+</span>
+
+#!markdown
+
+What you just did was learn the basic workings of a computer using nothing more than 1's and 0's. This includes counting, representing data, taking decisions and performing mathematical operations. Knowing that...
+
+<div style="width: 400px; margin: auto">
+    <h1 style="font-family: 'Times New Roman'">Computer</h1>
+    <hr>
+    <p style="font-family: 'Times New Roman'; font-size: 1rem">
+    On it ssimples terms, a computer is a device that performs mathematical operations on data to produce a result. In modern terms, it refers to an electronic device that can store, retrieve and process data.
+    </p>
+</div>
+
+We could then say that with what we just learned, we can build a very basic computer. 
