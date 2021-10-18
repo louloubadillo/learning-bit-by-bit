@@ -1,0 +1,55 @@
+html,body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    padding: 16px;
+    background-color: whitesmoke;
+}
+    header nav{
+        background-color: snow;
+        border: 1px solid lightgrey;
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+    }
+        header nav a{
+            text-decoration: none;
+        }
+
+main{
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+    .notebook{
+        text-decoration: none;
+        color: white !important;
+        font-size: 1.5rem;
+        background-color: black;
+        border-radius: 8px;
+    }
+        .notebook>div{
+            height: 200px;
+            width: 200px;
+            padding: 8px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+header>*, main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 800px;
+}
