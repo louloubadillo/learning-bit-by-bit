@@ -1,7 +1,0 @@
-#!csharp
-
-#r "nuget: Interactive.Journey"
-
-#!csharp
-
-#!start-lesson --from-file "1_Counting/1_1_Representing_Numbers/main.dib"

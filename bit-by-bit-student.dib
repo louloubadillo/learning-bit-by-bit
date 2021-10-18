@@ -1,7 +1,0 @@
-#!csharp
-
-#r "nuget: Interactive.Journey"
-
-#!csharp
-
-#!start-lesson --from-file "bit-by-bit-teacher.dib"
