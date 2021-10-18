@@ -1,3 +1,7 @@
 #!csharp
 
-// (Optional) Write a 2d array that matches the contents of the above table and see an image print
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenges.dib"

@@ -23,7 +23,7 @@ Lesson.ResetChallenge();
 
 #!csharp
 
-Func<int[,,], int> guessImage = (img) => 0;
+Func<int[,,], string> guessImage = (img) => " ";
 int[,,] image1;
 int[,,] image2;
 int[,,] image3;
@@ -34,27 +34,27 @@ int[,,] image5;
 
 Lesson.CurrentChallenge.AddRule("2.7. Image 1", context =>
 {
-    if(guessImage(image1) == 1) context.Pass("Image 1: Correct");
+    if(guessImage(image1) == '0') context.Pass("Image 1: Correct");
     else context.Fail("Image 1: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 2", context =>
 {
-    if(guessImage(image1) == 2) context.Pass("Image 2: Correct");
+    if(guessImage(image1) == '1') context.Pass("Image 2: Correct");
     else context.Fail("Image 2: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 3", context =>
 {
-    if(guessImage(image1) == 3) context.Pass("Image 3: Correct");
+    if(guessImage(image1) == 'i') context.Pass("Image 3: Correct");
     else context.Fail("Image 3: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 4", context =>
 {
-    if(guessImage(image1) == 4) context.Pass("Image 4: Correct");
+    if(guessImage(image1) == 'e') context.Pass("Image 4: Correct");
     else context.Fail("Image 4: Incorrect");
 });
 Lesson.CurrentChallenge.AddRule("2.7. Image 5", context =>
 {
-    if(guessImage(image1) == 5) context.Pass("Image 5: Correct");
+    if(guessImage(image1) == 'pi') context.Pass("Image 5: Correct");
     else context.Fail("Image 5: Incorrect");
 });
 
@@ -72,6 +72,14 @@ Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
             context.SetMessage("Challenge 2.7. is not complete");
         }
     });
+
+#!markdown
+
+[Question]
+
+<h2> Challenge </h2>
+
+Consider the arrays below...
 
 #!csharp
 
@@ -171,4 +179,20 @@ int[,,] image5 = new int[8,8,3] {
     {{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{1, 1, 1},{0, 0, 0},{1, 1, 1},{0, 0, 0}},
     
     {{1, 1, 1},{0, 0, 0},{0, 0, 0},{1, 1, 1},{1, 1, 1},{0, 0, 0},{0, 0, 0},{1, 1, 1}}
+};
+
+#!markdown
+
+<mark>_Write a function that receives one of the above arrays and outputs the symbol it represents_</mark>
+
+#!csharp
+
+guessImage = (arr) => {
+    // Symbols '0', '1', 'pi', 'i', 'e'
+    if(arr == image1) return " ";
+    if(arr == image2) return " ";
+    if(arr == image3) return " ";
+    if(arr == image4) return " ";
+    if(arr == image5) return " ";
+    return " ";
 };
