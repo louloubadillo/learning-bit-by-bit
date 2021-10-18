@@ -1,0 +1,43 @@
+#!markdown
+
+<h1> 3.1. Comparing two bits </h1>
+
+#!markdown
+
+_In this lesson, you will learn how comparing two bits helps make decisions._
+
+#!markdown
+
+<span style="font-size: 1rem">
+
+So now I understand how computers store data. But they do more than just that right? How can one _do stuff_ using ones an zeros?
+</span>
+
+#!markdown
+
+As we have said before, a bit is the fundamental unit of information in a binary system. A lot of power comes from comparing the content of two bits alone. Let's see all the combinations:
+
+$$
+\begin{align*}
+00 && 01 && 10 && 11
+\end{align*}
+$$
+
+#!markdown
+
+A lot of things can be identified from all the combinations above. Considering each bit as a true/false state, you realize you can build basic **conditions**. For example, you can get better health if you sleep well **AND** drink lots of water. 
+With this, you can have a way to receive two binary inputs and produce a binary output. This is called a **logic gate**.
+
+#!markdown
+
+## Logic Gates
+
+Logic gates are models of electronic devices or logic functions that receive one or two inputs to produce a resulting output. They serve as the most basic unit of programming. The most simple are: AND, OR, NOT. 
+
+#!csharp
+
+#r "nuget: Interactive.Journey"
+
+#!csharp
+
+#!start-lesson --from-file "challenge.dib"

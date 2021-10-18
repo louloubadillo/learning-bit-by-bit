@@ -1,0 +1,86 @@
+#!csharp
+
+//Packages
+#r "nuget: Interactive.Journey"
+#r "nuget: Interactive.Extension.ImageSharp"
+//Libraries
+using Microsoft.DotNet.Interactive.Journey;
+using Microsoft.DotNet.Interactive;
+using Microsoft.DotNet.Interactive.Commands;
+using Microsoft.DotNet.Interactive.CSharp;
+using Microsoft.DotNet.Interactive.Events;
+using SixLabors.ImageSharp;
+using System.IO;
+
+#!markdown
+
+# [Challenge] 3.1.2 Logic Gates
+
+#!csharp
+
+Func<bool,bool,bool> andGate = (a,b)=>false;
+Func<bool,bool,bool> orGate = (a,b)=>false;
+Func<bool,bool> notGate = (a)=>false;
+
+#!csharp
+
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.2. And Gate", context =>{
+    if(andGate(false, false) == false && andGate(false, true) == false && andGate(true, false) == false && andGate(true,true) == true) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.2. OR Gate", context =>{
+    if(orGate(false, false) == false && orGate(false, true) == true && orGate(true, false) == true && orGate(true,true) == true) context.Pass();
+    else context.Fail();
+});
+Lesson.CurrentChallenge.AddRule("Rule: 3.1.2. NOT Gate", context =>{
+    if(notGate(false) == true && notGate(true) == false) context.Pass();
+    else context.Fail();
+});
+
+#!csharp
+
+Lesson.CurrentChallenge.OnCodeSubmitted(async context =>
+    {
+        context.SetMessage("Please wait! We are checking your submission");
+        int numPassed = context.RuleEvaluations.Count(e => e.Passed);
+        int total = context.RuleEvaluations.Count();
+        if(numPassed == total){
+            context.SetMessage("Congratulations! Challenge completed");
+            await context.StartNextChallengeAsync();
+        } else {
+            context.SetMessage("Challenge 1.1.4. is not complete");
+        }
+    });
+
+#!markdown
+
+[Question]
+<h2> 3.1.2. Logic Gates </h2>
+
+<mark>_Use the table below to program the logic gates_</mark>
+
+| GATE | SYMBOLS | DESCRIPTION | 
+| ---- | ------- | ----------- |
+| AND | && | Returns `true` only if BOTH inputs are `true` |
+| OR  | \|\| | Returns `true` when EITHER of the inputs are `true` | 
+| NOT | ! | Returns `true` when the input is `false` |
+
+#!csharp
+
+// AND GATE
+andGate = (a, b) => {
+    // Code here
+    return false;
+};
+
+// OR GATE
+orGate = (a, b) => {
+    // Code here
+    return false;
+};
+
+// NOT GATE
+notGate = (a) => {
+    // Code here
+    return false;
+};
