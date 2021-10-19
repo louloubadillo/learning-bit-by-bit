@@ -1,0 +1,3 @@
+# About
+
+Hello! We hoped you enjoyed this project as much as we enjoyed creating it. If you would like to know more about the team behind it, allow us to introduce ourselves...
